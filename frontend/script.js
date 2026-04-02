@@ -37,7 +37,7 @@ function renderList() {
     .map(
       (m) => `
     <div class="movie-item ${m.id === activeId ? "active" : ""}" data-id="${m.id}">
-      <span class="movie-item-title">${esc(m.title)}</span>
+      <span class="movie-item-title">${m.title}</span>
       <span class="movie-item-sub">
         ${m.year ?? "—"}${m.rating != null ? " · ★ " + (+m.rating).toFixed(1) : ""}
       </span>
@@ -76,18 +76,18 @@ function showDetail(m) {
 
   detailEl.innerHTML = `
     <div>
-      <h1 class="detail-title">${esc(m.title)}</h1>
+      <h1 class="detail-title">${m.title}</h1>
       <div class="meta-row">
         ${m.year != null ? `<span class="badge">${m.year}</span>` : ""}
         ${m.rating != null ? `<span class="badge rating">★ ${(+m.rating).toFixed(1)}</span>` : ""}
-        ${genres.map((g) => `<span class="badge">${esc(g)}</span>`).join("")}
+        ${genres.map((g) => `<span class="badge">${g}</span>`).join("")}
         ${m.language && m.language !== "N/A" ? `<span class="badge">${m.language.toUpperCase()}</span>` : ""}
       </div>
       ${
         m.description
           ? `
         <p class="detail-label">Description</p>
-        <p class="detail-desc">${esc(m.description)}</p>
+        <p class="detail-desc">${m.description}</p>
       `
           : ""
       }
@@ -204,10 +204,4 @@ function showToast(msg) {
   toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2500);
 }
 
-// ── HELPER ──
-function esc(s) {
-  return String(s || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
+
