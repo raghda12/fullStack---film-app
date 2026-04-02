@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="topbar">
+        <span class="topbar-title">Movies</span>
+        <button class="btn-add" id="openBtn">+ Add movie</button>
+    </div>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-label">All films</div>
+            <div id="list"></div>
+        </aside>
+        <main class="detail" id="detail">
+            <div class="empty">Select a movie</div>
+        </main>
+    </div>
+
+    <div id="modal-container"></div>
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
